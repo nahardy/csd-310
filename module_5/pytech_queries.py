@@ -9,7 +9,9 @@
 from pymongo import MongoClient
 
 # MongoDB connection string 
-url = "mongodb+srv://admin:admin@cluster0.rsnru.mongodb.net/pytech?retryWrites=true&w=majority"
+# url = "mongodb+srv://admin:admin@cluster0.rsnru.mongodb.net/pytech?retryWrites=true&w=majority"
+url= 'mongodb+srv://admin:admin@cluster0.aj9m1pr.mongodb.net/pytech'
+
 
 # connect to the MongoDB cluster 
 client = MongoClient(url)
@@ -31,11 +33,11 @@ for doc in student_list:
     print("  Student ID: " + doc["student_id"] + "\n  First Name: " + doc["first_name"] + "\n  Last Name: " + doc["last_name"] + "\n")
 
 # find document by student_id
-bilbo = students.find_one({"student_id": "1008"})
+student_1007 = students.find_one({"student_id": "1007"})
 
 # output the results 
 print("\n  -- DISPLAYING STUDENT DOCUMENT FROM find_one() QUERY --")
-print("  Student ID: " + bilbo["student_id"] + "\n  First Name: " + bilbo["first_name"] + "\n  Last Name: " + bilbo["last_name"] + "\n")
+print("  Student ID: " + student_1007["student_id"] + "\n  First Name: " + student_1007["first_name"] + "\n  Last Name: " + student_1007["last_name"] + "\n")
 
 # exit message 
 input("\n\n  End of program, press any key to continue...")

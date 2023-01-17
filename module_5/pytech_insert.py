@@ -10,7 +10,9 @@
 from pymongo import MongoClient
 
 # MongoDB connection string 
-url = "mongodb+srv://admin:admin@cluster0.rsnru.mongodb.net/pytech?retryWrites=true&w=majority"
+# url = "mongodb+srv://admin:admin@cluster0.rsnru.mongodb.net/pytech?retryWrites=true&w=majority"
+url= 'mongodb+srv://admin:admin@cluster0.aj9m1pr.mongodb.net/pytech'
+
 
 # connect to the MongoDB cluster 
 client = MongoClient(url)
@@ -24,29 +26,6 @@ thorin = {
     "student_id": "1007",
     "first_name": "Thorin",
     "last_name": "Oakenshield",
-    "enrollments": [
-        {
-            "term": "Session 2",
-            "gpa": "4.0",
-            "start_date": "July 10, 2020",
-            "end_date": "September 14, 2020",
-            "courses": [
-                {
-                    "course_id": "CSD310",
-                    "description": "Database Development and Use",
-                    "instructor": "Professor Krasso",
-                    "grade": "A+"
-                },
-                {
-                    "course_id": "CSD320",
-                    "description": "Programming with Java",
-                    "instructor": "Professor Krasso",
-                    "grade": "A+"
-                }
-            ]
-        }
-    ]
-
 }
 
 # Bilbo Baggins data document 
@@ -54,58 +33,14 @@ bilbo = {
     "student_id": "1008",
     "first_name": "Bilbo",
     "last_name": "Baggins",
-    "enrollments": [
-        {
-            "term": "Session 2",
-            "gpa": "3.52",
-            "start_date": "July 10, 2020",
-            "end_date": "September 14, 2020",
-            "courses": [
-                {
-                    "course_id": "CSD310",
-                    "description": "Database Development and Use",
-                    "instructor": "Professor Krasso",
-                    "grade": "B+"
-                },
-                {
-                    "course_id": "CSD320",
-                    "description": "Programming with Java",
-                    "instructor": "Professor Krasso",
-                    "grade": "A-"
-                }
-            ]
-        }
-    ]
-}
+  }
 
 # Frodo Baggins data document
 frodo = {
     "student_id": "1009",
     "first_name": "Frodo",
     "last_name": "Baggins",
-    "enrollments": [
-        {
-            "term": "Session 2",
-            "gpa": "1.5",
-            "start_date": "July 10, 2020",
-            "end_date": "September 14, 2020",
-            "courses": [
-                {
-                    "course_id": "CSD310",
-                    "description": "Database Development and Use",
-                    "instructor": "Professor Krasso",
-                    "grade": "C"
-                },
-                {
-                    "course_id": "CSD 320",
-                    "description": "Programming with Java",
-                    "instructor": "Professor Krasso",
-                    "grade": "B"
-                }
-            ]
-        }
-    ]
-}
+   }
 
 # get the students collection 
 students = db.students
