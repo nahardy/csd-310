@@ -20,7 +20,7 @@ db = client.pytech
 
 # show the connected collections 
 print("\n -- Pytech COllection List --")
-print(db.list_collection_names())
+print([x for x in db.list_collection_names() if "collection" != x])
 
 # show an exit message
 input("\n\n  End of program, press any key to exit... ")
