@@ -1,46 +1,36 @@
-""" 
-    Title: pytech_update.py
-    Author: Professor Krasso
-    Date: 10 July 2020
-    Description: Test program for updating a document in the pytech collection
-"""
 
-""" import statements """
+# Create a new directory under csd-310 and name it module_6.
+# Inside the module_6 directory create a new file and name it pytech_update.py.
+# Add the required Python code to connect to the students collection (refer to previous assignments for help).
+
+# imports
 from pymongo import MongoClient
 
-# MongoDB connection string 
-url = "mongodb+srv://admin:admin@cluster0.rsnru.mongodb.net/pytech?retryWrites=true&w=majority"
-
-# connect to the MongoDB cluster 
+# setup connection
+url= 'mongodb+srv://admin:admin@cluster0.aj9m1pr.mongodb.net/pytech'
 client = MongoClient(url)
 
-# connect pytech database
+# get db
 db = client.pytech
 
-# get the students collection 
+#  get students collection
 students = db.students
 
-# find all students in the collection 
-student_list = students.find({})
+# utility function to print student information to console
+def printStudent(stu):
+     print(" Student ID: {} \n First Name: {}\n Last Name: {}\n\n".format(stu['student_id'],stu['first_name'],stu['last_name']))
 
-# display message 
-print("\n  -- DISPLAYING STUDENTS DOCUMENTS FROM find() QUERY --")
 
-# loop over the collection and output the results 
-for doc in student_list:
-    print("  Student ID: " + doc["student_id"] + "\n  First Name: " + doc["first_name"] + "\n  Last Name: " + doc["last_name"] + "\n")
+# Call the find() method and output the documents to the terminal window.
+print('-- DISPLAYING STUDENTS DOCUMENTS FROM find() QUERY --')
+for stu in students.find({}):
+    printStudent(stu)
 
-# update student_id 1007
-result = students.update_one({"student_id": "1007"}, {"$set": {"last_name": "Oakenshield II"}})
 
-# find the updated student document 
-thorin = students.find_one({"student_id": "1007"})
+studentQuery = {'student_id': '1007'}
+# Call the update_one method by student_id 1007 and update the last name to something different than the originally saved name.
+update_student = students.update_one(studentQuery, {"$set":{'last_name':"Hardy"}})
 
-# display message
-print("\n  -- DISPLAYING STUDENT DOCUMENT 1007 --")
-
-# output the updated document to the terminal window
-print("  Student ID: " + thorin["student_id"] + "\n  First Name: " + thorin["first_name"] + "\n  Last Name: " + thorin["last_name"] + "\n")
-
-# exit message 
-input("\n\n  End of program, press any key to continue...")
+# Call the find_one method by student_id 1007 and output the document to the terminal window.
+print("-- DISPLAYING STUDENT DOCUMENT 1007 --")
+printStudent(students.find_one(studentQuery))
