@@ -34,3 +34,5 @@ update_student = students.update_one(studentQuery, {"$set":{'last_name':"Hardy"}
 # Call the find_one method by student_id 1007 and output the document to the terminal window.
 print("-- DISPLAYING STUDENT DOCUMENT 1007 --")
 printStudent(students.find_one(studentQuery))
+
+print("End of program, press any key to continue....")
