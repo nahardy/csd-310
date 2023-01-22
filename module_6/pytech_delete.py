@@ -1,4 +1,5 @@
-#References: Krasso, P. (2020) (Lines 2, 4, 6, 8 in this code).  
+#References: Krasso, P. (2020) (Lines 3, 6, 10, 13 in this code).  
+
 # imports
 from pymongo import MongoClient
 
@@ -19,12 +20,9 @@ def printStudent(stu):
 #3 Call the find() method and display the results to the terminal window.
 students_list = students.find({})
 
-
-
 print("\n --DISPLAYING STUDENTS DOCUMENTS FROM find() QUERY --")
 for stu in students_list:
     printStudent(stu)
-
 
 
 #4 Call the insert_one() method and Insert a new document into the pytech collection with student_id 1010.
@@ -43,7 +41,6 @@ printStudent(found_student)
 # call the delete_one method to remove the student_test_doc
 deleted_student =students.delete_one(studentFilter)
 # print("deleted count: {}".format(deleted.deleted_count))
-
 
 # display message 
 print("\n  -- DISPLAYING STUDENTS DOCUMENTS FROM find() QUERY --")
