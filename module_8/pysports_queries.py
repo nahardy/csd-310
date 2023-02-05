@@ -1,8 +1,8 @@
-#Nick Hardy 
-#Assignment 8.3 pysports_queries
-#02/05/2023
+# Nick Hardy 
+# Assignment 8.3 pysports_queries
+# 02/05/2023
 
-#mysql import statement used from assignment 8.2
+# mysql import statement used from assignment 8.2
 
 import mysql.connector
 from mysql.connector import errorcode
@@ -24,7 +24,7 @@ try:
 
     cursor = db.cursor()
 
-    # select query from the team table 
+    # selects query 
     cursor.execute("SELECT team_id, team_name, mascot FROM team")
 
     # get the results from the cursor object 
@@ -36,10 +36,10 @@ try:
     for team in teams: 
         print("  Team ID: {}\n  Team Name: {}\n  Mascot: {}\n".format(team[0], team[1], team[2]))
 
-    # select query for the team/player table 
+    # selects query
     cursor.execute("SELECT player_id, first_name, last_name, team_id FROM player")
 
-    # grabs results from the cursor object then prints
+    # grabs results from cursor
     players = cursor.fetchall()
 
     print ("\n  -- DISPLAYING PLAYER RECORDS --")
@@ -64,6 +64,6 @@ except mysql.connector.Error as err:
         print(err)
 
 #This closes the connection to MySQL
-finally: #This closes the connection to MySQL
+finally: 
      db.close()
 
